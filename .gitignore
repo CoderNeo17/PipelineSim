@@ -1,0 +1,13 @@
+#IDE
+.vscode
+build
+
+
+#output files
+*.out
+*.o
+*.exe
+
+#other
+*.Identifier
+*.swp
