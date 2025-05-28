@@ -1,7 +1,7 @@
 #include<iostream>
 #include<queue>
 #include<fstream>
-
+#include<cstdint>
 using namespace std;
 
 #define ICACHE "./input/ICache.txt"
@@ -42,6 +42,13 @@ class IF{
             //else push icache[pc] into IR queue;
             //increment PC by 2
             //return stall
+
+            if(stall > 0){} // do nothing
+            else{
+                IR->push(static_cast<int8_t>(ICache[*PC]));
+                *PC += 2;
+            }
+            return stall;
         }
 };
 class ID{
@@ -80,6 +87,13 @@ class ID{
             //reg_hazard[16] corresponds to pc
             //control hazards are checked using this
             //if control hazard, return 2
+
+            if(stall){} // donothing
+            else{
+                int16_t instruc = IR->front();
+                IR->pop();
+                
+            }
         }
 };
 class EX{
