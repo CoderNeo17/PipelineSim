@@ -29,11 +29,11 @@ using namespace std;
 
 class IF{
     private:
-        queue<int8_t>* IR;
+        queue<int16_t>* IR;
         uint8_t* ICache;
         
     public:
-        IF(queue<int8_t>* ir,uint8_t* ic){
+        IF(queue<int16_t>* ir,uint8_t* ic){
             this->IR = ir;
             this->ICache = ic;
         }
@@ -45,7 +45,7 @@ class IF{
 
             if(stall > 0){} // do nothing
             else{
-                IR->push(static_cast<int8_t>(ICache[*PC]));
+                IR->push((ICache[*PC]));
                 *PC += 2;
             }
             return stall;
@@ -92,7 +92,7 @@ class ID{
             else{
                 int16_t instruc = IR->front();
                 IR->pop();
-                
+
             }
         }
 };
